@@ -1,0 +1,124 @@
+unit MonCoffre;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,StrUtils , IdHTTP,System.Net.HttpClient, System.JSON,
+  Vcl.Imaging.pngimage;
+
+type
+  TForm2 = class(TForm)
+    Image: TImage;
+    Suivant: TButton;
+    Precedent: TButton;
+    Image3: TImage;
+    pannelClikable: TPanel;
+    Label1: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure afficheimg;
+    procedure SuivantClick(Sender: TObject);
+    procedure PrecedentClick(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+  private
+    { Déclarations privées }
+
+  public
+    { Déclarations publiques }
+
+  end;
+
+var
+  Form2: TForm2;
+  strA:Tstringlist;
+  ind:integer;
+
+
+
+implementation
+
+
+
+
+{$R *.dfm}
+
+procedure TForm2.FormShow(Sender: TObject);
+var
+
+  StreamReader: TStreamReader;
+  Numbers: TStringList;
+  strTot: string;
+  NumberArray: TArray<string>;
+  taille:integer;
+  value:string;
+begin
+  StreamReader := TStreamReader.Create('MesCartes.txt');
+  strTot:=StreamReader.ReadToEnd;
+  Numbers := TStringList.Create;
+  strTot:=StringReplace(strTot, sLineBreak, '', [rfReplaceAll]);
+  NumberArray:=SplitString(strTot, ',');
+   for value in NumberArray  do
+     strA.Add(value);
+
+   ind:=0;
+   afficheimg;
+
+ // showmessage(strTot);
+  StreamReader.Free;
+
+end;
+
+procedure TForm2.Image3Click(Sender: TObject);
+begin
+  ind:=0;
+  Image.Picture:=nil;
+  afficheimg;
+end;
+
+procedure TForm2.PrecedentClick(Sender: TObject);
+begin
+  if ind > 0 then
+  begin
+    ind:=ind-1;
+    Image.Picture:=nil;
+    afficheimg  ;
+  end
+  else
+  ShowMessage('c''est la première carte') ;
+
+end;
+
+procedure TForm2.SuivantClick(Sender: TObject);
+begin
+  if ind <strA.count-1 then
+  begin
+    ind:=ind+1;
+    Image.Picture:=nil;
+    afficheimg;
+  end
+  else
+  ShowMessage('c''est la dernière carte');
+end;
+
+procedure TForm2.afficheimg;
+var
+  HTTPClient: THTTPClient;
+  ResponseContent: TStringStream;
+begin
+
+  HTTPClient := THTTPClient.Create;
+  ResponseContent := TStringStream.Create;
+  //ShowMessage(StrA.ValueFromIndex[ind]);
+
+  HTTPClient.Get('https://images.ygoprodeck.com/images/cards/'+StrA.Strings[ind]+'.jpg', ResponseContent);
+
+  Image.Picture.LoadFromStream(ResponseContent);
+  ResponseContent.Free;
+
+end;
+
+initialization
+strA:=TstringList.Create;
+
+
+end.

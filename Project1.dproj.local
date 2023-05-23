@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/01/26 10:23:55.000.091,=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2023/05/16 14:50:04.000.430,=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2023/05/16 15:49:33.000.484,C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit1.dfm=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\attrapeTaKarte.dfm</Transaction>
+    <Transaction>2023/05/16 15:49:33.000.484,C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit1.pas=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\attrapeTaKarte.pas</Transaction>
+    <Transaction>2023/05/16 15:49:38.000.790,C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Project1.dproj=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Project1.dproj</Transaction>
+    <Transaction>2023/05/18 17:35:50.031,=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit2.pas</Transaction>
+    <Transaction>2023/05/18 17:40:22.890,C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\MonCoffre.dfm=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit2.dfm</Transaction>
+    <Transaction>2023/05/18 17:40:22.890,C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\MonCoffre.pas=C:\Users\Corentin\Documents\Embarcadero\Studio\Projets\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>
